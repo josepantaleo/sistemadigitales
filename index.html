@@ -1,60 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Abrir PowerPoint</title>
-    <style>
-      body {
-        position: relative;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        color: rgb(221, 218, 14);
-        padding: 25px;
-        margin: 25px;
-        overflow: hidden; /* para que el pseudo-elemento no se desborde */
-        background-image: url("fondo.jpg");
-        background-size: cover; /* ajusta la imagen al tamaño del body */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abrir PowerPoint - IPEM 146 "CENTENARIO"</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      color: #ddd90e;
+      padding: 40px;
+      background: url("fondo.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 5px 5px 15px rgba(103, 5, 168, 0.8);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    hr {
+      width: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      margin: 30px 0;
+    }
+
+    .download-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .download-section h2 {
+      margin-bottom: 20px;
+    }
+
+    a.download-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      background-color: #dfd004;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 5px 5px 15px rgba(124, 124, 124, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    a.download-btn:hover {
+      background-color: #04be2c;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
       }
 
-      h1,
-      h2,h3 {
-        text-align: center;
-        font-size: 25px;
-        padding: auto;
-        color: white;
+      h2 {
+        font-size: 1.5rem;
       }
-      h1 {
-        font-size: 50px;
-        text-shadow: 5px 5px 10px rgb(103, 5, 168);
+
+      a.download-btn {
+        font-size: 1.2rem;
+        padding: 12px 25px;
       }
-      a {
-        margin-top: 25px;
-        box-shadow: 15px 15px 15px rgb(124, 124, 124);
-        font-size: 50px;
-        text-align: center;
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #dfd004;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-family: Arial, sans-serif;
-      }
-      a:hover {
-        
-        background-color: #04be2c;
-         box-shadow: 15px 15px 15px rgb(15, 3, 3);
-      }
-      
-    </style>
-  </head>
-  <body>
+    }
+  </style>
+</head>
+<body>
+  <header>
     <h1>IPEM 146 "CENTENARIO"</h1>
-    <h2>Asignatura: Sistemas Digitales 5to A Tarde Informatica 2025</h2>
+    <h2>Asignatura: Sistemas Digitales 5to A Tarde Informática 2025</h2>
     <h3>Prof. José Pantaleo</h3>
-    <br />
-    <hr />
+  </header>
+
+  <hr />
+
+  <section class="download-section">
     <h2>Descargar Diapositivas PowerPoint Resumen General</h2>
-    <a href="sd.pptx" download>Descargar Presentación</a>
-  </body>
+    <a class="download-btn" href="sd.pptx" download>Descargar Presentación</a>
+  </section>
+</body>
 </html>
