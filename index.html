@@ -1,155 +1,750 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistemas Digitales - Resumen Clase 1</title>
+    <style>
+      /* Estilos optimizados para modernizar el diseño */
+      :root {
+        --primary: #2c3e50;
+        --secondary: #3498db;
+        --accent: #e67e22;
+        --bg: #f4f7f6;
+        --text: #333;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--bg);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: var(--primary);
+        color: var(--white);
+        padding: 3rem 1rem;
+        text-align: center;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+      }
+      header p {
+        margin: 8px 0 0;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .contenedor {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      section {
+        background: var(--white);
+        margin-bottom: 30px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+      }
+
+      h2 {
+        color: var(--primary);
+        border-left: 6px solid var(--secondary);
+        padding-left: 15px;
+        margin-top: 0;
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        color: var(--secondary);
+        margin-top: 25px;
+      }
+
+      .resumen {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 18px;
+        border-radius: 10px;
+        border-left: 5px solid #4caf50;
+        font-weight: 600;
+        margin: 20px 0;
+      }
+
+      .ejemplo {
+        background: #fff9c4;
+        color: #5d4037;
+        padding: 18px;
+        border-radius: 10px;
+        border: 1px solid #ffe082;
+        font-family: "Consolas", "Monaco", monospace;
+        margin: 20px 0;
+      }
+
+      .tip {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid var(--secondary);
+        margin: 15px 0;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .columnas {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .columna {
+        flex: 1;
+        min-width: 280px;
+        background: #fcfcfc;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #eee;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+      }
+
+      th,
+      td {
+        border: 1px solid #edf2f7;
+        padding: 14px;
+        text-align: left;
+      }
+
+      th {
+        background: var(--secondary);
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+
+      .container {
+        border: 1px solid #e2e8f0;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+
+      code {
+        display: block;
+        background: #1e1e1e;
+        color: #dcdcdc;
+        padding: 20px;
+        border-radius: 10px;
+        overflow-x: auto;
+        font-family: "Consolas", monospace;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        word-spacing: 10px;
+        white-space: pre-wrap; /* Mantiene el formato pero permite saltos si es necesario */
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem;
+        color: #94a3b8;
+        font-size: 0.95rem;
+      }
+
+      a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s;
+      }
+      a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      /* Ajustes para checkboxes en la actividad */
+      ul {
+        list-style-type: none;
+        padding-left: 10px;
+      }
+      ul li {
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>IPEM 146 - Sistemas Digitales</h1>
+      <p>4TO A Tarde - Informática</p>
+      <p>Prof. J. Pantaleo</p>
+    </header>
+
+    <div class="contenedor">
+      <section>
+        <h2>Sistema</h2>
+        <p>
+          El concepto de sistema se refiere a un conjunto de elementos que están
+          relacionados entre sí y trabajan juntos para cumplir una función o
+          alcanzar un objetivo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Sistema Digital</h2>
+        <p>
+          Un sistema digital es un conjunto de dispositivos electrónicos que
+          procesan, almacenan o transmiten información usando señales digitales
+          representadas por <b>0 y 1</b>.
+        </p>
+
+        <h3>Características principales</h3>
+        <ul>
+          <li>• Utiliza señales binarias (0 y 1).</li>
+          <li>• La información se procesa mediante circuitos lógicos.</li>
+          <li>
+            • Es más preciso y resistente al ruido que los sistemas analógicos.
+          </li>
+        </ul>
+
+        <h3>Componentes básicos</h3>
+        <ul>
+          <li><b>Entradas:</b> reciben datos (teclado, sensores).</li>
+          <li><b>Procesamiento:</b> puertas lógicas y circuitos digitales.</li>
+          <li>
+            <b>Salidas:</b> muestran o envían el resultado (pantalla,
+            impresora).
+          </li>
+        </ul>
+
+        <h3>Ejemplos</h3>
+        <ul>
+          <li>• Computadoras</li>
+          <li>• Teléfonos celulares</li>
+          <li>• Calculadoras</li>
+          <li>• Relojes digitales</li>
+          <li>• Consolas de videojuegos</li>
+        </ul>
+
+        <div class="resumen">
+          ✔ Un sistema digital trabaja con información en forma de bits (0 y 1).
+        </div>
+      </section>
+
+      <section>
+        <h2>Sistema Analógico</h2>
+        <p>
+          Un sistema analógico representa y procesa información mediante señales
+          continuas.
+        </p>
+
+        <h3>Características</h3>
+        <ul>
+          <li>• Utiliza señales continuas.</li>
+          <li>• Los valores cambian de forma progresiva.</li>
+          <li>• Es más sensible al ruido.</li>
+        </ul>
+
+        <h3>Ejemplos</h3>
+        <ul>
+          <li>• Reloj con agujas</li>
+          <li>• Radio analógica</li>
+          <li>• Termómetro de mercurio</li>
+        </ul>
+
+        <div class="resumen">✔ Un sistema analógico usa señales continuas.</div>
+      </section>
+
+      <section>
+        <h2>BIT</h2>
+        <p>
+          Un bit (binary digit) es la unidad más pequeña de información en
+          informática.
+        </p>
+
+        <h3>Características</h3>
+        <ul>
+          <li>• Solo puede tener dos valores: 0 o 1.</li>
+          <li>• Representa estados como encendido/apagado.</li>
+        </ul>
+
+        <h3>Relación con otras unidades</h3>
+        <ul>
+          <li>• 8 bits = 1 byte</li>
+          <li>• Los bytes representan letras, números y símbolos.</li>
+        </ul>
+
+        <div class="resumen">
+          ✔ Un bit es la unidad básica de información digital.
+        </div>
+      </section>
+
+      <section>
+        <h2>Sistema Binario</h2>
+        <p>El sistema binario utiliza solo dos números: <b>0 y 1</b>.</p>
+
+        <h3>Características</h3>
+        <ul>
+          <li>• Su base es 2.</li>
+          <li>• Cada posición representa una potencia de 2.</li>
+          <li>• Es el sistema utilizado por las computadoras.</li>
+        </ul>
+
+        <div class="ejemplo">Ejemplo: 1011 = 8 + 0 + 2 + 1 = 11</div>
+      </section>
+
+      <section>
+        <h2>Conversiones</h2>
+
+        <h3>Decimal → Binario</h3>
+        <p>Dividir entre 2 y tomar los restos.</p>
+        <img
+          class="dec_bin"
+          src="dec a bin.jpg"
+          alt="Gráfico de Decimal a Binario"
+        />
+
+        <h3>Binario → Decimal</h3>
+        <p>Sumar potencias de 2 según cada bit.</p>
+        <img
+          class="dec_bin"
+          src="bin a dec.jpg"
+          alt="Gráfico de Binario a Decimal"
+        />
+
+        <h2>Conversión Automática</h2>
+        <p>
+          Para convertir números entre sistemas numéricos también se puede usar
+          una calculadora en modo programador o herramientas online.
+        </p>
+        <p>
+          Calculadora online:
+          <a
+            href="https://www.unitjuggler.com/numbersystems-convertir-decimal-a-binary.html?val=0"
+            target="_blank"
+          >
+            Convertidor Decimal a Binario
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Tabla Ascii</h2>
+        <img class="ascii" src="ascii.jpg" alt="Tabla ASCII completa" />
+      </section>
+
+      <section>
+        <h2>🧠 Ejercicios</h2>
+        <div class="columnas">
+          <div class="columna">
+            <h3>🔤 ASCII</h3>
+            <h4>🔢 Número → carácter</h4>
+            <ol>
+              <li>65 = ______</li>
+              <li>97 = ______</li>
+              <li>48 = ______</li>
+              <li>64 = ______</li>
+            </ol>
+            <h4>🔐 Decodificar</h4>
+            <ol>
+              <li>72 79 76 65 = ______</li>
+              <li>80 67 = ______</li>
+            </ol>
+          </div>
+
+          <div class="columna">
+            <h3>🔢 Sistemas Numéricos</h3>
+            <h4>🔢 Binario → Decimal</h4>
+            <ol>
+              <li>101₂ = ______</li>
+              <li>1101₂ = ______</li>
+              <li>1111₂ = ______</li>
+            </ol>
+            <h4>🔄 Decimal → Binario</h4>
+            <ol>
+              <li>5₁₀ = ______</li>
+              <li>10₁₀ = ______</li>
+              <li>18₁₀ = ______</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="ejemplo" style="margin-top: 20px">
+          <h2>Descubrí el mensaje secreto</h2>
+          <p>
+            Convierte los números binarios a decimal, busca en la tabla y arma
+            la frase:
+          </p>
+          <code
+            >01000101 01010011 00100000 01010101 01001110 00100000 01001010
+            01010101 01000101 01000111 01001111 00100000 01000100 01000101
+            00100000 01001100 01000001 01000000 01010000 01010010 01001111
+            01000111 01010010 01000001 01001101 01000001 01000011 01001001
+            01001111 01001110 00100000 01001100 01000001 00100000 01010100
+            01000101 01000011 01001110 01001111 01001100 01001111 01000111
+            01001001 01000001 00100000 01000101 01010011 00100000 01000110
+            01010101 01010100 01010101 01010010 01001111</code
+          >
+        </div>
+      </section>
+
+      <section id="hard">
+        <h2>Hardware</h2>
+        <p class="tip">
+          El hardware se refiere a todas las partes físicas de una
+          computadora... componentes tangibles que puedes ver y tocar.
+        </p>
+
+        <h2>Componentes de PC</h2>
+        <h3>1. Procesador (CPU)</h3>
+        <p><b>Función:</b> Ejecuta instrucciones y controla el PC.</p>
+        <ul>
+          <li>• <b>Núcleos:</b> Más núcleos = mejor multitarea.</li>
+          <li>• <b>Frecuencia (GHz):</b> Velocidad de operación.</li>
+        </ul>
+
+        <h3>2. Placa base (Motherboard)</h3>
+        <p>Une todos los componentes y permite la comunicación entre ellos.</p>
+
+        <h3>3. Memoria RAM</h3>
+        <p>Almacena temporalmente datos para uso rápido de la CPU.</p>
+
+        <h3>4. Almacenamiento</h3>
+        <ul>
+          <li>• <b>HDD:</b> Económico, gran capacidad, lento.</li>
+          <li>• <b>SSD:</b> Muy rápido, carga veloz de programas.</li>
+        </ul>
+
+        <div class="tip">
+          <b>Recomendación:</b> Usar SSD para el sistema y HDD para archivos
+          grandes.
+        </div>
+
+        <h3>5. Tarjeta gráfica (GPU)</h3>
+        <p>Procesa gráficos y video. Vital para juegos y diseño.</p>
+
+        <a
+          href="https://mega.nz/file/IpknEZiS#4A_Gju3PnrC1lvkh_F_2uUQYqfv6kUJvDspD81G3IQU"
+          >Simulador de Ensamble PC</a
+        >
+      </section>
+
+      <section>
+        <h1>🧠 Actividad Práctica</h1>
+        <div class="container">
+          <h3>Parte 2: Verdadero o Falso</h3>
+          <ul>
+            <li>⬜ Un SSD es más lento que un HDD.</li>
+            <li>⬜ La RAM almacena datos de forma permanente.</li>
+            <li>⬜ La GPU es importante para videojuegos.</li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <h3>Parte 3: Relacionar conceptos</h3>
+          <table>
+            <tr>
+              <th>Componente</th>
+              <th>Función</th>
+            </tr>
+            <tr>
+              <td>CPU</td>
+              <td>....................................</td>
+            </tr>
+            <tr>
+              <td>RAM</td>
+              <td>....................................</td>
+            </tr>
+            <tr>
+              <td>SSD</td>
+              <td>....................................</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Software: El "Cerebro" Lógico</h2>
+        <p>
+          El software es el conjunto de instrucciones, datos y programas que
+          permiten que el hardware realice tareas específicas. Si el hardware es
+          el cuerpo, el software es la mente.
+        </p>
+
+        <div class="tip">
+          <strong>¿Cómo funciona?</strong> El software traduce nuestras
+          necesidades a un lenguaje que el procesador entiende (binario),
+          pasando por diferentes niveles de abstracción.
+        </div>
+
+        <h3>1. Clasificación Detallada</h3>
+        <div class="columnas">
+          <div class="columna">
+            <h4>Sistemas Operativos</h4>
+            <p>
+              Es el software base. Gestiona los recursos del hardware y permite
+              la interacción con el usuario.
+            </p>
+            <ul>
+              <li>• <b>Ejemplos:</b> Windows, macOS, Linux, Android, iOS.</li>
+            </ul>
+          </div>
+          <div class="columna">
+            <h4>Software de Aplicación</h4>
+            <p>
+              Programas diseñados para realizar tareas específicas para el
+              usuario final.
+            </p>
+            <ul>
+              <li>
+                • <b>Ejemplos:</b> Office, Navegadores, Editores de fotos,
+                Juegos.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>2. Software de Programación</h3>
+        <p>
+          Son las herramientas que usan los desarrolladores para crear otros
+          programas. Incluyen editores de texto, compiladores e intérpretes.
+        </p>
+        <div class="ejemplo">
+          Lógica de programación: Entrada → Algoritmo (Proceso) → Salida
+        </div>
+
+        <h3>3. Licenciamiento: ¿Libre o Propietario?</h3>
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Características</th>
+            <th>Ejemplos</th>
+          </tr>
+          <tr>
+            <td><b>Software Libre</b></td>
+            <td>
+              Se puede ver el código, modificarlo y compartirlo libremente.
+            </td>
+            <td>Linux, VLC, LibreOffice.</td>
+          </tr>
+          <tr>
+            <td><b>Software Propietario</b></td>
+            <td>
+              El código es cerrado y pertenece a una empresa; suele requerir
+              pago.
+            </td>
+            <td>Windows, Photoshop, iOS.</td>
+          </tr>
+        </table>
+
+        <h3>4. Firmware: El puente</h3>
+        <p>
+          Es un tipo de software específico que está grabado directamente en los
+          circuitos integrados (hardware). Su función es controlar el
+          funcionamiento del dispositivo a nivel físico.
+          <i>Ejemplo: La BIOS de una computadora.</i>
+        </p>
+
+        <div class="resumen">
+          ✔ Sin software, el hardware es solo metal y plástico sin utilidad. El
+          equilibrio entre ambos define el rendimiento de un sistema.
+        </div>
+      </section>
+Esta es la versión final optimizada de tu guía. He unificado todas las secciones, corregido la anidación de las etiquetas (había secciones dentro de otras) y pulido la semántica para que sea un documento técnico impecable.
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Sistemas Digitales - Resumen Clase 1</title>
-
-<link rel="stylesheet" href="styles.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Maestra de Visual Studio Code</title>
 </head>
-
 <body>
 
-<header>
-<h1>IPEM 146 - Sistemas Digitales 4TO A Tarde Informatica</h1>
-<p>Resumen Clase 1</p>
-<p>Prof. J. Pantaleo</p>
-</header>
+    <section id="instalacion">
+        <header>
+            <p><em>Software de Programación: Visual Studio Code</em></p>
+            <h1>Guía de Instalación para Windows</h1>
+        </header>
 
-<div class="container">
+        <h2>1. Obtener el archivo</h2>
+        <p>
+            Entra en la web oficial:
+            <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.
+        </p>
+        <p>
+            Haz clic en el botón azul <strong>"Download for Windows"</strong>. Se
+            descargará el instalador (ej. <em>VSCodeUserSetup-x64.exe</em>).
+        </p>
 
-<section>
-<h2>Sistema</h2>
-<p>El concepto de sistema se refiere a un conjunto de elementos que están relacionados entre sí y trabajan juntos para cumplir una función o alcanzar un objetivo.</p>
-</section>
+        <hr />
 
-<section>
-<h2>Sistema Digital</h2>
+        <h2>2. Ejecución y Configuración (Paso Crítico)</h2>
+        <p>
+            Inicia el instalador. Durante el proceso, presta atención a la
+            <strong>Selección de tareas adicionales</strong>. Es fundamental
+            marcar todas las casillas:
+        </p>
+        <ul>
+            <li>[x] Crear un acceso directo en el escritorio.</li>
+            <li>[x] Agregar la acción "Abrir con Code" al menú contextual de archivos.</li>
+            <li>[x] Agregar la acción "Abrir con Code" al menú contextual de directorios.</li>
+            <li>[x] Registrar Code como editor para tipos de archivo admitidos.</li>
+            
+        </ul>
 
-<p>Un sistema digital es un conjunto de dispositivos electrónicos que procesan, almacenan o transmiten información usando señales digitales representadas por <b>0 y 1</b>.</p>
+        <p>Finalmente, haz clic en <strong>Instalar</strong> y luego en <strong>Finalizar</strong>.</p>
+    </section>
 
-<h3>Características principales</h3>
-<ul>
-<li>Utiliza señales binarias (0 y 1).</li>
-<li>La información se procesa mediante circuitos lógicos.</li>
-<li>Es más preciso y resistente al ruido que los sistemas analógicos.</li>
-</ul>
+    <hr />
 
-<h3>Componentes básicos</h3>
-<ul>
-<li><b>Entradas:</b> reciben datos (teclado, sensores).</li>
-<li><b>Procesamiento:</b> puertas lógicas y circuitos digitales.</li>
-<li><b>Salidas:</b> muestran o envían el resultado (pantalla, impresora).</li>
-</ul>
+    <section id="configuracion">
+        <h1>Configuración y Extensiones Web (HTML & CSS)</h1>
+        <p>Ajustes esenciales para trabajar con diseño web de forma eficiente.</p>
 
-<h3>Ejemplos</h3>
-<ul>
-<li>Computadoras</li>
-<li>Teléfonos celulares</li>
-<li>Calculadoras</li>
-<li>Relojes digitales</li>
-<li>Consolas de videojuegos</li>
-</ul>
+        <h2>1. El "Auto-Guardado"</h2>
+        <p>Para no perder cambios ni olvidar guardar manualmente:</p>
+        <ul>
+            <li>Ve a <strong>Archivo &gt; Autoguardado</strong>.</li>
+        </ul>
 
-<div class="resumen">
-✔ Un sistema digital trabaja con información en forma de bits (0 y 1).
-</div>
+        <article id="productividad-visual">
+            <h3>Productividad Visual</h3>
+            <ul>
+                <li><strong>Live Server:</strong> Actualización automática del navegador al guardar.</li>
+                <li><strong>Color Highlight:</strong> Visualización de colores directamente en el código CSS.</li>
+                <li><strong>CSS Peek:</strong> Acceso rápido a los estilos desde el archivo HTML usando <code>Ctrl + Clic</code>.</li>
+            </ul>
+        </article>
 
-</section>
+        <article id="escritura-orden">
+            <h3>Escritura y Orden</h3>
+            <ul>
+                <li><strong>Auto Rename Tag:</strong> Sincronización automática de etiquetas de apertura y cierre.</li>
+                <li><strong>Prettier:</strong> Formateador automático de código (<code>Shift + Alt + F</code>).</li>
+                <li><strong>IntelliSense for CSS:</strong> Autocompletado inteligente de clases CSS en HTML.</li>
+            </ul>
+        </article>
+        
+        <p><em>Consejo: Mantén instaladas solo las que uses para que VS Code siga siendo rápido.</em></p>
+    </section>
 
-<section>
-<h2>Sistema Analógico</h2>
+    <hr />
 
-<p>Un sistema analógico representa y procesa información mediante señales continuas.</p>
+    <section id="personalizacion">
+        <h1>Personalización: Idioma, Temas e Iconos</h1>
 
-<h3>Características</h3>
-<ul>
-<li>Utiliza señales continuas.</li>
-<li>Los valores cambian de forma progresiva.</li>
-<li>Es más sensible al ruido.</li>
-</ul>
+        <h2>1. Cambiar el idioma a Español</h2>
+        <ol>
+            <li>Busca en extensiones (<code>Ctrl + Shift + X</code>): <strong>"Spanish Language Pack"</strong>.</li>
+            <li>Instala y selecciona <strong>"Change Language and Restart"</strong> en el aviso emergente.</li>
+        </ol>
 
-<h3>Ejemplos</h3>
-<ul>
-<li>Reloj con agujas</li>
-<li>Radio analógica</li>
-<li>Termómetro de mercurio</li>
-</ul>
+        <h2>2. Temas y Estética</h2>
+        <ul>
+            <li><strong>Colores:</strong> Presiona <code>Ctrl + K + T</code> para elegir un tema visual.</li>
+            <li><strong>Iconos:</strong> Instala la extensión <strong>"Material Icon Theme"</strong> para identificar archivos visualmente.</li>
+        </ul>
 
-<div class="resumen">
-✔ Un sistema analógico usa señales continuas.
-</div>
+      
+    </section>
 
-</section>
+    <hr />
 
-<section>
-<h2>BIT</h2>
+    <section id="atajos-vscode">
+        <h1>Guía Rápida de Atajos y Trucos</h1>
+        <p>Domina el teclado para programar con la velocidad de un profesional.</p>
 
-<p>Un bit (binary digit) es la unidad más pequeña de información en informática.</p>
+        <h2>🚀 VELOCIDAD (Emmet & Estructura)</h2>
+        <ul>
+            <li><strong>Estructura HTML rápida:</strong> <code>!</code> + <code>Enter</code>.</li>
+            <li><strong>Cierre de Etiquetas:</strong> <code>Nombre de etiqueta</code> + <code>Tab</code>.</li>
+            <li><strong>Texto de relleno:</strong> <code>lorem</code> + <code>Enter</code>.</li>
+        </ul>
 
-<h3>Características</h3>
-<ul>
-<li>Solo puede tener dos valores: 0 o 1.</li>
-<li>Representa estados como encendido/apagado.</li>
-</ul>
+        <h2>🎨 EDICIÓN (Magia con el cursor)</h2>
+        <table border="1" cellpadding="5" style="width: 100%; text-align: left;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th>Acción</th>
+                    <th>Teclas</th>
+                    <th>Efecto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Multicursor</strong></td>
+                    <td><code>Alt + Clic</code></td>
+                    <td>Escribe en varios lugares a la vez.</td>
+                </tr>
+                <tr>
+                    <td><strong>Selección Múltiple</strong></td>
+                    <td><code>Ctrl + D</code></td>
+                    <td>Selecciona la palabra actual y la siguiente igual.</td>
+                </tr>
+                <tr>
+                    <td><strong>Clonación</strong></td>
+                    <td><code>Shift + Alt + ↓</code></td>
+                    <td>Duplica la línea hacia abajo.</td>
+                </tr>
+                <tr>
+                    <td><strong>Teletransporte</strong></td>
+                    <td><code>Alt + ↑ / ↓</code></td>
+                    <td>Mueve una línea entera de lugar.</td>
+                </tr>
+            </tbody>
+        </table>
 
-<h3>Relación con otras unidades</h3>
-<ul>
-<li>8 bits = 1 byte</li>
-<li>Los bytes representan letras, números y símbolos.</li>
-</ul>
+        <h2>🧹 ORDEN Y VISTA</h2>
+        <ul>
+            <li><strong>Auto-Formateo:</strong> <code>Shift + Alt + F</code>.</li>
+            <li><strong>Ajuste de Línea:</strong> <code>Alt + Z</code> (Para que el código no se desborde).</li>
+            <li><strong>Comentar bloque:</strong> <code>Ctrl + /</code>.</li>
+            <li><strong>Modo Zen:</strong> <code>Ctrl + K</code> → <code>Z</code> (Pantalla limpia).</li>
+            <li><strong>Zoom:</strong> <code>Ctrl + "+" / "-"</code> (Aumentar/Reducir) y <code>Ctrl + 0</code> (Reset).</li>
+        </ul>
+    </section>
+    </div>
 
-<div class="resumen">
-✔ Un bit es la unidad básica de información digital.
-</div>
-
-</section>
-
-<section>
-<h2>Sistema Binario</h2>
-
-<p>El sistema binario utiliza solo dos números: <b>0 y 1</b>.</p>
-
-<h3>Características</h3>
-<ul>
-<li>Su base es 2.</li>
-<li>Cada posición representa una potencia de 2.</li>
-<li>Es el sistema utilizado por las computadoras.</li>
-</ul>
-
-<div class="ejemplo">
-Ejemplo: 1011 = 8 + 0 + 2 + 1 = 11
-</div>
-
-</section>
-
-<section>
-<h2>Conversiones</h2>
-
-<h3>Decimal → Binario</h3>
-<p>Dividir entre 2 y tomar los restos.</p>
-<img src="dec a bin.jpg" alt="">
-
-<h3>Binario → Decimal</h3>
-<p>Sumar potencias de 2 según cada bit.</p>
-<img src="bin a dec.jpg" alt="">
-<h2>Conversión Automática</h2>
-
-<p>Para convertir números entre sistemas numéricos también se puede usar una calculadora en modo programador o herramientas online.</p>
-
-<p>
-Calculadora online:
-<a href="https://www.unitjuggler.com/numbersystems-convertir-decimal-a-binary.html?val=0" target="_blank">
-Convertidor Decimal a Binario
-</a>
-</section>
-<h2>Tabla Ascii</h2>
-<img src="ascii.jpg" alt="">
-</div>
-
-<footer>
-<p>Clase de Sistemas Digitales</p>
-</footer>
-
-</body>
+    <footer>
+      <p>IPEM 146 - Sistemas Digitales | Clase 1 y 2 | 2026</p>
+    </footer>
+  </body>
 </html>
