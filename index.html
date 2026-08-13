@@ -1,750 +1,1884 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistemas Digitales - Resumen Clase 1</title>
-    <style>
-      /* Estilos optimizados para modernizar el diseño */
-      :root {
-        --primary: #2c3e50;
-        --secondary: #3498db;
-        --accent: #e67e22;
-        --bg: #f4f7f6;
-        --text: #333;
-        --white: #ffffff;
-        --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-      }
 
-      body {
-        font-family:
-          "Segoe UI",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        line-height: 1.6;
-        color: var(--text);
-        background-color: var(--bg);
-        margin: 0;
-        padding: 0;
-      }
-
-      header {
-        background: var(--primary);
-        color: var(--white);
-        padding: 3rem 1rem;
-        text-align: center;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      header h1 {
-        margin: 0;
-        font-size: 2.2rem;
-        letter-spacing: -1px;
-      }
-      header p {
-        margin: 8px 0 0;
-        opacity: 0.9;
-        font-size: 1.1rem;
-      }
-
-      .contenedor {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 0 20px;
-      }
-
-      section {
-        background: var(--white);
-        margin-bottom: 30px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: var(--shadow);
-      }
-
-      h2 {
-        color: var(--primary);
-        border-left: 6px solid var(--secondary);
-        padding-left: 15px;
-        margin-top: 0;
-        font-size: 1.6rem;
-      }
-
-      h3 {
-        color: var(--secondary);
-        margin-top: 25px;
-      }
-
-      .resumen {
-        background: #e8f5e9;
-        color: #2e7d32;
-        padding: 18px;
-        border-radius: 10px;
-        border-left: 5px solid #4caf50;
-        font-weight: 600;
-        margin: 20px 0;
-      }
-
-      .ejemplo {
-        background: #fff9c4;
-        color: #5d4037;
-        padding: 18px;
-        border-radius: 10px;
-        border: 1px solid #ffe082;
-        font-family: "Consolas", "Monaco", monospace;
-        margin: 20px 0;
-      }
-
-      .tip {
-        background: #e3f2fd;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 4px solid var(--secondary);
-        margin: 15px 0;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 20px auto;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .columnas {
-        display: flex;
-        gap: 25px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-      }
-
-      .columna {
-        flex: 1;
-        min-width: 280px;
-        background: #fcfcfc;
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid #eee;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        background: white;
-      }
-
-      th,
-      td {
-        border: 1px solid #edf2f7;
-        padding: 14px;
-        text-align: left;
-      }
-
-      th {
-        background: var(--secondary);
-        color: white;
-      }
-      tr:nth-child(even) {
-        background-color: #f8fafc;
-      }
-
-      .container {
-        border: 1px solid #e2e8f0;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-      }
-
-      code {
-        display: block;
-        background: #1e1e1e;
-        color: #dcdcdc;
-        padding: 20px;
-        border-radius: 10px;
-        overflow-x: auto;
-        font-family: "Consolas", monospace;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        word-spacing: 10px;
-        white-space: pre-wrap; /* Mantiene el formato pero permite saltos si es necesario */
-      }
-
-      footer {
-        text-align: center;
-        padding: 3rem;
-        color: #94a3b8;
-        font-size: 0.95rem;
-      }
-
-      a {
-        color: var(--secondary);
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.2s;
-      }
-      a:hover {
-        color: var(--accent);
-        text-decoration: underline;
-      }
-
-      /* Ajustes para checkboxes en la actividad */
-      ul {
-        list-style-type: none;
-        padding-left: 10px;
-      }
-      ul li {
-        margin-bottom: 8px;
-      }
-
-      @media (max-width: 600px) {
-        header h1 {
-          font-size: 1.5rem;
-        }
-        section {
-          padding: 20px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1>IPEM 146 - Sistemas Digitales</h1>
-      <p>4TO A Tarde - Informática</p>
-      <p>Prof. J. Pantaleo</p>
-    </header>
-
-    <div class="contenedor">
-      <section>
-        <h2>Sistema</h2>
-        <p>
-          El concepto de sistema se refiere a un conjunto de elementos que están
-          relacionados entre sí y trabajan juntos para cumplir una función o
-          alcanzar un objetivo.
-        </p>
-      </section>
-
-      <section>
-        <h2>Sistema Digital</h2>
-        <p>
-          Un sistema digital es un conjunto de dispositivos electrónicos que
-          procesan, almacenan o transmiten información usando señales digitales
-          representadas por <b>0 y 1</b>.
-        </p>
-
-        <h3>Características principales</h3>
-        <ul>
-          <li>• Utiliza señales binarias (0 y 1).</li>
-          <li>• La información se procesa mediante circuitos lógicos.</li>
-          <li>
-            • Es más preciso y resistente al ruido que los sistemas analógicos.
-          </li>
-        </ul>
-
-        <h3>Componentes básicos</h3>
-        <ul>
-          <li><b>Entradas:</b> reciben datos (teclado, sensores).</li>
-          <li><b>Procesamiento:</b> puertas lógicas y circuitos digitales.</li>
-          <li>
-            <b>Salidas:</b> muestran o envían el resultado (pantalla,
-            impresora).
-          </li>
-        </ul>
-
-        <h3>Ejemplos</h3>
-        <ul>
-          <li>• Computadoras</li>
-          <li>• Teléfonos celulares</li>
-          <li>• Calculadoras</li>
-          <li>• Relojes digitales</li>
-          <li>• Consolas de videojuegos</li>
-        </ul>
-
-        <div class="resumen">
-          ✔ Un sistema digital trabaja con información en forma de bits (0 y 1).
-        </div>
-      </section>
-
-      <section>
-        <h2>Sistema Analógico</h2>
-        <p>
-          Un sistema analógico representa y procesa información mediante señales
-          continuas.
-        </p>
-
-        <h3>Características</h3>
-        <ul>
-          <li>• Utiliza señales continuas.</li>
-          <li>• Los valores cambian de forma progresiva.</li>
-          <li>• Es más sensible al ruido.</li>
-        </ul>
-
-        <h3>Ejemplos</h3>
-        <ul>
-          <li>• Reloj con agujas</li>
-          <li>• Radio analógica</li>
-          <li>• Termómetro de mercurio</li>
-        </ul>
-
-        <div class="resumen">✔ Un sistema analógico usa señales continuas.</div>
-      </section>
-
-      <section>
-        <h2>BIT</h2>
-        <p>
-          Un bit (binary digit) es la unidad más pequeña de información en
-          informática.
-        </p>
-
-        <h3>Características</h3>
-        <ul>
-          <li>• Solo puede tener dos valores: 0 o 1.</li>
-          <li>• Representa estados como encendido/apagado.</li>
-        </ul>
-
-        <h3>Relación con otras unidades</h3>
-        <ul>
-          <li>• 8 bits = 1 byte</li>
-          <li>• Los bytes representan letras, números y símbolos.</li>
-        </ul>
-
-        <div class="resumen">
-          ✔ Un bit es la unidad básica de información digital.
-        </div>
-      </section>
-
-      <section>
-        <h2>Sistema Binario</h2>
-        <p>El sistema binario utiliza solo dos números: <b>0 y 1</b>.</p>
-
-        <h3>Características</h3>
-        <ul>
-          <li>• Su base es 2.</li>
-          <li>• Cada posición representa una potencia de 2.</li>
-          <li>• Es el sistema utilizado por las computadoras.</li>
-        </ul>
-
-        <div class="ejemplo">Ejemplo: 1011 = 8 + 0 + 2 + 1 = 11</div>
-      </section>
-
-      <section>
-        <h2>Conversiones</h2>
-
-        <h3>Decimal → Binario</h3>
-        <p>Dividir entre 2 y tomar los restos.</p>
-        <img
-          class="dec_bin"
-          src="dec a bin.jpg"
-          alt="Gráfico de Decimal a Binario"
-        />
-
-        <h3>Binario → Decimal</h3>
-        <p>Sumar potencias de 2 según cada bit.</p>
-        <img
-          class="dec_bin"
-          src="bin a dec.jpg"
-          alt="Gráfico de Binario a Decimal"
-        />
-
-        <h2>Conversión Automática</h2>
-        <p>
-          Para convertir números entre sistemas numéricos también se puede usar
-          una calculadora en modo programador o herramientas online.
-        </p>
-        <p>
-          Calculadora online:
-          <a
-            href="https://www.unitjuggler.com/numbersystems-convertir-decimal-a-binary.html?val=0"
-            target="_blank"
-          >
-            Convertidor Decimal a Binario
-          </a>
-        </p>
-      </section>
-
-      <section>
-        <h2>Tabla Ascii</h2>
-        <img class="ascii" src="ascii.jpg" alt="Tabla ASCII completa" />
-      </section>
-
-      <section>
-        <h2>🧠 Ejercicios</h2>
-        <div class="columnas">
-          <div class="columna">
-            <h3>🔤 ASCII</h3>
-            <h4>🔢 Número → carácter</h4>
-            <ol>
-              <li>65 = ______</li>
-              <li>97 = ______</li>
-              <li>48 = ______</li>
-              <li>64 = ______</li>
-            </ol>
-            <h4>🔐 Decodificar</h4>
-            <ol>
-              <li>72 79 76 65 = ______</li>
-              <li>80 67 = ______</li>
-            </ol>
-          </div>
-
-          <div class="columna">
-            <h3>🔢 Sistemas Numéricos</h3>
-            <h4>🔢 Binario → Decimal</h4>
-            <ol>
-              <li>101₂ = ______</li>
-              <li>1101₂ = ______</li>
-              <li>1111₂ = ______</li>
-            </ol>
-            <h4>🔄 Decimal → Binario</h4>
-            <ol>
-              <li>5₁₀ = ______</li>
-              <li>10₁₀ = ______</li>
-              <li>18₁₀ = ______</li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="ejemplo" style="margin-top: 20px">
-          <h2>Descubrí el mensaje secreto</h2>
-          <p>
-            Convierte los números binarios a decimal, busca en la tabla y arma
-            la frase:
-          </p>
-          <code
-            >01000101 01010011 00100000 01010101 01001110 00100000 01001010
-            01010101 01000101 01000111 01001111 00100000 01000100 01000101
-            00100000 01001100 01000001 01000000 01010000 01010010 01001111
-            01000111 01010010 01000001 01001101 01000001 01000011 01001001
-            01001111 01001110 00100000 01001100 01000001 00100000 01010100
-            01000101 01000011 01001110 01001111 01001100 01001111 01000111
-            01001001 01000001 00100000 01000101 01010011 00100000 01000110
-            01010101 01010100 01010101 01010010 01001111</code
-          >
-        </div>
-      </section>
-
-      <section id="hard">
-        <h2>Hardware</h2>
-        <p class="tip">
-          El hardware se refiere a todas las partes físicas de una
-          computadora... componentes tangibles que puedes ver y tocar.
-        </p>
-
-        <h2>Componentes de PC</h2>
-        <h3>1. Procesador (CPU)</h3>
-        <p><b>Función:</b> Ejecuta instrucciones y controla el PC.</p>
-        <ul>
-          <li>• <b>Núcleos:</b> Más núcleos = mejor multitarea.</li>
-          <li>• <b>Frecuencia (GHz):</b> Velocidad de operación.</li>
-        </ul>
-
-        <h3>2. Placa base (Motherboard)</h3>
-        <p>Une todos los componentes y permite la comunicación entre ellos.</p>
-
-        <h3>3. Memoria RAM</h3>
-        <p>Almacena temporalmente datos para uso rápido de la CPU.</p>
-
-        <h3>4. Almacenamiento</h3>
-        <ul>
-          <li>• <b>HDD:</b> Económico, gran capacidad, lento.</li>
-          <li>• <b>SSD:</b> Muy rápido, carga veloz de programas.</li>
-        </ul>
-
-        <div class="tip">
-          <b>Recomendación:</b> Usar SSD para el sistema y HDD para archivos
-          grandes.
-        </div>
-
-        <h3>5. Tarjeta gráfica (GPU)</h3>
-        <p>Procesa gráficos y video. Vital para juegos y diseño.</p>
-
-        <a
-          href="https://mega.nz/file/IpknEZiS#4A_Gju3PnrC1lvkh_F_2uUQYqfv6kUJvDspD81G3IQU"
-          >Simulador de Ensamble PC</a
-        >
-      </section>
-
-      <section>
-        <h1>🧠 Actividad Práctica</h1>
-        <div class="container">
-          <h3>Parte 2: Verdadero o Falso</h3>
-          <ul>
-            <li>⬜ Un SSD es más lento que un HDD.</li>
-            <li>⬜ La RAM almacena datos de forma permanente.</li>
-            <li>⬜ La GPU es importante para videojuegos.</li>
-          </ul>
-        </div>
-
-        <div class="container">
-          <h3>Parte 3: Relacionar conceptos</h3>
-          <table>
-            <tr>
-              <th>Componente</th>
-              <th>Función</th>
-            </tr>
-            <tr>
-              <td>CPU</td>
-              <td>....................................</td>
-            </tr>
-            <tr>
-              <td>RAM</td>
-              <td>....................................</td>
-            </tr>
-            <tr>
-              <td>SSD</td>
-              <td>....................................</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-
-      <section>
-        <h2>Software: El "Cerebro" Lógico</h2>
-        <p>
-          El software es el conjunto de instrucciones, datos y programas que
-          permiten que el hardware realice tareas específicas. Si el hardware es
-          el cuerpo, el software es la mente.
-        </p>
-
-        <div class="tip">
-          <strong>¿Cómo funciona?</strong> El software traduce nuestras
-          necesidades a un lenguaje que el procesador entiende (binario),
-          pasando por diferentes niveles de abstracción.
-        </div>
-
-        <h3>1. Clasificación Detallada</h3>
-        <div class="columnas">
-          <div class="columna">
-            <h4>Sistemas Operativos</h4>
-            <p>
-              Es el software base. Gestiona los recursos del hardware y permite
-              la interacción con el usuario.
-            </p>
-            <ul>
-              <li>• <b>Ejemplos:</b> Windows, macOS, Linux, Android, iOS.</li>
-            </ul>
-          </div>
-          <div class="columna">
-            <h4>Software de Aplicación</h4>
-            <p>
-              Programas diseñados para realizar tareas específicas para el
-              usuario final.
-            </p>
-            <ul>
-              <li>
-                • <b>Ejemplos:</b> Office, Navegadores, Editores de fotos,
-                Juegos.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <h3>2. Software de Programación</h3>
-        <p>
-          Son las herramientas que usan los desarrolladores para crear otros
-          programas. Incluyen editores de texto, compiladores e intérpretes.
-        </p>
-        <div class="ejemplo">
-          Lógica de programación: Entrada → Algoritmo (Proceso) → Salida
-        </div>
-
-        <h3>3. Licenciamiento: ¿Libre o Propietario?</h3>
-        <table>
-          <tr>
-            <th>Tipo</th>
-            <th>Características</th>
-            <th>Ejemplos</th>
-          </tr>
-          <tr>
-            <td><b>Software Libre</b></td>
-            <td>
-              Se puede ver el código, modificarlo y compartirlo libremente.
-            </td>
-            <td>Linux, VLC, LibreOffice.</td>
-          </tr>
-          <tr>
-            <td><b>Software Propietario</b></td>
-            <td>
-              El código es cerrado y pertenece a una empresa; suele requerir
-              pago.
-            </td>
-            <td>Windows, Photoshop, iOS.</td>
-          </tr>
-        </table>
-
-        <h3>4. Firmware: El puente</h3>
-        <p>
-          Es un tipo de software específico que está grabado directamente en los
-          circuitos integrados (hardware). Su función es controlar el
-          funcionamiento del dispositivo a nivel físico.
-          <i>Ejemplo: La BIOS de una computadora.</i>
-        </p>
-
-        <div class="resumen">
-          ✔ Sin software, el hardware es solo metal y plástico sin utilidad. El
-          equilibrio entre ambos define el rendimiento de un sistema.
-        </div>
-      </section>
-Esta es la versión final optimizada de tu guía. He unificado todas las secciones, corregido la anidación de las etiquetas (había secciones dentro de otras) y pulido la semántica para que sea un documento técnico impecable.
-
-HTML
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Maestra de Visual Studio Code</title>
+
+    <title>JavaScript Básico + Práctica</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <section id="instalacion">
-        <header>
-            <p><em>Software de Programación: Visual Studio Code</em></p>
-            <h1>Guía de Instalación para Windows</h1>
-        </header>
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-        <h2>1. Obtener el archivo</h2>
-        <p>
-            Entra en la web oficial:
-            <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.
-        </p>
-        <p>
-            Haz clic en el botón azul <strong>"Download for Windows"</strong>. Se
-            descargará el instalador (ej. <em>VSCodeUserSetup-x64.exe</em>).
-        </p>
+    <header class="header">
 
-        <hr />
+        <div class="logo">
+            <span>JS</span>
+            Sistema Digitales 4to: JavaScript  Profesor J. Pantaleo
+        </div>
 
-        <h2>2. Ejecución y Configuración (Paso Crítico)</h2>
-        <p>
-            Inicia el instalador. Durante el proceso, presta atención a la
-            <strong>Selección de tareas adicionales</strong>. Es fundamental
-            marcar todas las casillas:
-        </p>
-        <ul>
-            <li>[x] Crear un acceso directo en el escritorio.</li>
-            <li>[x] Agregar la acción "Abrir con Code" al menú contextual de archivos.</li>
-            <li>[x] Agregar la acción "Abrir con Code" al menú contextual de directorios.</li>
-            <li>[x] Registrar Code como editor para tipos de archivo admitidos.</li>
-            
-        </ul>
+    </header>
 
-        <p>Finalmente, haz clic en <strong>Instalar</strong> y luego en <strong>Finalizar</strong>.</p>
-    </section>
 
-    <hr />
+    <!-- =====================================================
+         LAYOUT
+    ====================================================== -->
 
-    <section id="configuracion">
-        <h1>Configuración y Extensiones Web (HTML & CSS)</h1>
-        <p>Ajustes esenciales para trabajar con diseño web de forma eficiente.</p>
+    <div class="layout">
 
-        <h2>1. El "Auto-Guardado"</h2>
-        <p>Para no perder cambios ni olvidar guardar manualmente:</p>
-        <ul>
-            <li>Ve a <strong>Archivo &gt; Autoguardado</strong>.</li>
-        </ul>
 
-        <article id="productividad-visual">
-            <h3>Productividad Visual</h3>
-            <ul>
-                <li><strong>Live Server:</strong> Actualización automática del navegador al guardar.</li>
-                <li><strong>Color Highlight:</strong> Visualización de colores directamente en el código CSS.</li>
-                <li><strong>CSS Peek:</strong> Acceso rápido a los estilos desde el archivo HTML usando <code>Ctrl + Clic</code>.</li>
-            </ul>
-        </article>
+        <!-- =================================================
+             MENÚ LATERAL
+        ================================================== -->
 
-        <article id="escritura-orden">
-            <h3>Escritura y Orden</h3>
-            <ul>
-                <li><strong>Auto Rename Tag:</strong> Sincronización automática de etiquetas de apertura y cierre.</li>
-                <li><strong>Prettier:</strong> Formateador automático de código (<code>Shift + Alt + F</code>).</li>
-                <li><strong>IntelliSense for CSS:</strong> Autocompletado inteligente de clases CSS en HTML.</li>
-            </ul>
-        </article>
-        
-        <p><em>Consejo: Mantén instaladas solo las que uses para que VS Code siga siendo rápido.</em></p>
-    </section>
+        <aside class="sidebar">
 
-    <hr />
+            <h3>JavaScript</h3>
 
-    <section id="personalizacion">
-        <h1>Personalización: Idioma, Temas e Iconos</h1>
+            <nav>
 
-        <h2>1. Cambiar el idioma a Español</h2>
-        <ol>
-            <li>Busca en extensiones (<code>Ctrl + Shift + X</code>): <strong>"Spanish Language Pack"</strong>.</li>
-            <li>Instala y selecciona <strong>"Change Language and Restart"</strong> en el aviso emergente.</li>
-        </ol>
+                <a href="#introduccion" class="activo">
+                    <span>01</span>
+                    Introducción
+                </a>
 
-        <h2>2. Temas y Estética</h2>
-        <ul>
-            <li><strong>Colores:</strong> Presiona <code>Ctrl + K + T</code> para elegir un tema visual.</li>
-            <li><strong>Iconos:</strong> Instala la extensión <strong>"Material Icon Theme"</strong> para identificar archivos visualmente.</li>
-        </ul>
+                <a href="#variables">
+                    <span>02</span>
+                    Variables
+                </a>
 
-      
-    </section>
+                <a href="#tipos">
+                    <span>03</span>
+                    Tipos de datos
+                </a>
 
-    <hr />
+                <a href="#operadores">
+                    <span>04</span>
+                    Operadores
+                </a>
 
-    <section id="atajos-vscode">
-        <h1>Guía Rápida de Atajos y Trucos</h1>
-        <p>Domina el teclado para programar con la velocidad de un profesional.</p>
+                <a href="#condicionales">
+                    <span>05</span>
+                    Condicionales
+                </a>
 
-        <h2>🚀 VELOCIDAD (Emmet & Estructura)</h2>
-        <ul>
-            <li><strong>Estructura HTML rápida:</strong> <code>!</code> + <code>Enter</code>.</li>
-            <li><strong>Cierre de Etiquetas:</strong> <code>Nombre de etiqueta</code> + <code>Tab</code>.</li>
-            <li><strong>Texto de relleno:</strong> <code>lorem</code> + <code>Enter</code>.</li>
-        </ul>
+                <a href="#funciones">
+                    <span>06</span>
+                    Funciones
+                </a>
 
-        <h2>🎨 EDICIÓN (Magia con el cursor)</h2>
-        <table border="1" cellpadding="5" style="width: 100%; text-align: left;">
-            <thead>
-                <tr style="background-color: #f2f2f2;">
-                    <th>Acción</th>
-                    <th>Teclas</th>
-                    <th>Efecto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Multicursor</strong></td>
-                    <td><code>Alt + Clic</code></td>
-                    <td>Escribe en varios lugares a la vez.</td>
-                </tr>
-                <tr>
-                    <td><strong>Selección Múltiple</strong></td>
-                    <td><code>Ctrl + D</code></td>
-                    <td>Selecciona la palabra actual y la siguiente igual.</td>
-                </tr>
-                <tr>
-                    <td><strong>Clonación</strong></td>
-                    <td><code>Shift + Alt + ↓</code></td>
-                    <td>Duplica la línea hacia abajo.</td>
-                </tr>
-                <tr>
-                    <td><strong>Teletransporte</strong></td>
-                    <td><code>Alt + ↑ / ↓</code></td>
-                    <td>Mueve una línea entera de lugar.</td>
-                </tr>
-            </tbody>
-        </table>
+                <a href="#arrays">
+                    <span>07</span>
+                    Arrays
+                </a>
 
-        <h2>🧹 ORDEN Y VISTA</h2>
-        <ul>
-            <li><strong>Auto-Formateo:</strong> <code>Shift + Alt + F</code>.</li>
-            <li><strong>Ajuste de Línea:</strong> <code>Alt + Z</code> (Para que el código no se desborde).</li>
-            <li><strong>Comentar bloque:</strong> <code>Ctrl + /</code>.</li>
-            <li><strong>Modo Zen:</strong> <code>Ctrl + K</code> → <code>Z</code> (Pantalla limpia).</li>
-            <li><strong>Zoom:</strong> <code>Ctrl + "+" / "-"</code> (Aumentar/Reducir) y <code>Ctrl + 0</code> (Reset).</li>
-        </ul>
-    </section>
+                <a href="#bucles">
+                    <span>08</span>
+                    Bucles
+                </a>
+
+                <a href="#objetos">
+                    <span>09</span>
+                    Objetos
+                </a>
+
+                <a href="#arrays-avanzados">
+                    <span>10</span>
+                    Arrays avanzados
+                </a>
+
+                <a href="#strings">
+                    <span>11</span>
+                    Strings
+                </a>
+
+                <a href="#scope">
+                    <span>12</span>
+                    Scope
+                </a>
+
+                <a href="#dom">
+                    <span>13</span>
+                    DOM
+                </a>
+
+                <a href="#formularios">
+                    <span>14</span>
+                    Formularios
+                </a>
+
+                <a href="#localstorage">
+                    <span>15</span>
+                    LocalStorage
+                </a>
+
+                <a href="#json-fetch">
+                    <span>16</span>
+                    JSON y Fetch
+                </a>
+
+                <a href="#errores">
+                    <span>17</span>
+                    Errores
+                </a>
+
+                <a href="#proyecto">
+                    <span>18</span>
+                    Proyecto final
+                </a>
+
+                <a href="#eventos">
+                    <span>19</span>
+                    Eventos
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTENIDO
+        ================================================== -->
+
+        <main class="contenido">
+
+
+            <!-- =================================================
+                 01 INTRODUCCIÓN
+            ================================================== -->
+
+            <section id="introduccion" class="clase">
+
+                <h1>Introducción a JavaScript</h1>
+
+                <p class="descripcion">
+                    Fundamentos de JavaScript para crear páginas web
+                    interactivas.
+                </p>
+
+
+                <div class="card">
+
+                    <h2>¿Qué es JavaScript?</h2>
+
+                    <p>
+                        JavaScript es un lenguaje de programación que permite
+                        agregar comportamiento e interactividad a nuestras
+                        páginas web. Es un lenguaje interpretado, versátil y
+                        muy popular en el desarrollo web moderno.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>¿Por qué aprender JavaScript?</h2>
+
+                    <p>JavaScript te permite:</p>
+
+                    <ul>
+                        <li>Crear efectos visuales y animaciones</li>
+                        <li>Validar formularios antes de enviarlos</li>
+                        <li>Responder a acciones del usuario</li>
+                        <li>Modificar el contenido de la página dinámicamente</li>
+                        <li>Comunicarse con servidores sin recargar la página</li>
+                    </ul>
+
+                </div>
+
+
+                <h2>
+                    Para probar los códigos crear 2 archivos en Visual Studio:
+                    <strong>prueba.html</strong> y <strong>prueba.js</strong>
+                </h2>
+
+                <img src="prueba.jpg" alt="Ejemplo de archivos JavaScript">
+
+
+                <h2>Código JS para probar</h2>
+
+
+                <div class="codigo">
+
+                    <pre><code>&lt;script&gt;
+fetch("prueba.js")
+    .then((respuesta) =&gt; respuesta.text())
+    .then((codigo) =&gt; {
+        document.getElementById("codigoJS").textContent = codigo;
+    })
+    .catch((error) =&gt; {
+        document.getElementById("codigoJS").textContent =
+            "Error al cargar prueba.js";
+
+        console.error(error);
+    });
+&lt;/script&gt;</code></pre>
+
+                </div>
+
+
+                <h2>HTML + CSS + JavaScript</h2>
+
+
+                <div class="tecnologias">
+
+                    <div class="tecnologia html">
+                        <strong>HTML</strong>
+                        <span>Estructura</span>
+                    </div>
+
+                    <div class="tecnologia css">
+                        <strong>CSS</strong>
+                        <span>Diseño</span>
+                    </div>
+
+                    <div class="tecnologia js">
+                        <strong>JS</strong>
+                        <span>Interactividad</span>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>¿Cómo incluir JavaScript?</h2>
+
+                    <p>
+                        Hay tres formas de usar JavaScript:
+                    </p>
+
+                    <ol>
+
+                        <li>
+                            En atributos HTML:
+                            <code>&lt;button onclick="alert('Hola')"&gt;</code>
+                        </li>
+
+                        <li>
+                            En etiqueta script:
+                            <code>&lt;script&gt;...código...&lt;/script&gt;</code>
+                        </li>
+
+                        <li>
+                            En archivo externo:
+                            <code>&lt;script src="script.js"&gt;</code>
+                        </li>
+
+                    </ol>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 02 VARIABLES
+            ================================================== -->
+
+            <section id="variables" class="clase">
+
+                <h1>Variables</h1>
+
+                <p>
+                    Las variables sirven para guardar información que podemos
+                    utilizar posteriormente.
+                </p>
+
+
+                <div class="card">
+
+                    <h2>¿Qué es una variable?</h2>
+
+                    <p>
+                        Una variable es un contenedor que guarda un valor.
+                        Podemos compararlo con una caja en la que guardamos algo.
+                        La caja tiene un nombre y adentro hay un valor.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>let nombre = "Juan";
+let edad = 20;
+let altura = 1.75;
+
+console.log(nombre);
+console.log(edad);
+console.log(altura);</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Palabras clave para variables</h2>
+
+                    <ul>
+
+                        <li>
+                            <strong>let:</strong>
+                            Variable que puede cambiar.
+                        </li>
+
+                        <li>
+                            <strong>const:</strong>
+                            Variable que no puede cambiar.
+                        </li>
+
+                        <li>
+                            <strong>var:</strong>
+                            Variable antigua. Se recomienda utilizar
+                            <code>let</code> o <code>const</code>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>let ciudad = "Córdoba";
+
+// puede cambiar
+ciudad = "Villa Dolores";
+
+const PI = 3.14159;
+
+// NO puede cambiar
+
+
+const persona = {
+    nombre: "Ana",
+    edad: 25
+};
+
+persona.edad = 26;
+
+console.log(persona);</code></pre>
+
+                </div>
+
+
+                <div class="nota">
+
+                    <strong>💡 Recordá</strong>
+
+                    <p>
+                        Usa <code>const</code> por defecto.
+                        Solo usa <code>let</code> cuando necesites cambiar
+                        el valor de la variable.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 03 TIPOS DE DATOS
+            ================================================== -->
+
+            <section id="tipos" class="clase">
+
+                <h1>Tipos de datos</h1>
+
+                <p>
+                    JavaScript puede trabajar con diferentes tipos de
+                    información.
+                </p>
+
+
+                <div class="grid">
+
+                    <div class="card pequeño">
+                        <h3>String</h3>
+                        <p>Texto</p>
+                        <code>"Hola mundo"</code>
+                    </div>
+
+                    <div class="card pequeño">
+                        <h3>Number</h3>
+                        <p>Números</p>
+                        <code>25</code>
+                    </div>
+
+                    <div class="card pequeño">
+                        <h3>Boolean</h3>
+                        <p>Verdadero o falso</p>
+                        <code>true</code>
+                    </div>
+
+                    <div class="card pequeño">
+                        <h3>Array</h3>
+                        <p>Listas de valores</p>
+                        <code>[1, 2, 3]</code>
+                    </div>
+
+                    <div class="card pequeño">
+                        <h3>Object</h3>
+                        <p>Objetos complejos</p>
+                        <code>{nombre: "Ana"}</code>
+                    </div>
+
+                    <div class="card pequeño">
+                        <h3>null / undefined</h3>
+                        <p>Sin valor</p>
+                        <code>null</code>
+                    </div>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>// String
+const nombre = "Juan";
+const saludo = "Hola";
+const mensaje = `Bienvenido ${nombre}`;
+
+// Number
+const edad = 25;
+const precio = 19.99;
+const negativo = -10;
+
+// Boolean
+const esEstudiante = true;
+const tieneLicencia = false;
+
+// typeof
+console.log(typeof nombre);
+console.log(typeof edad);
+console.log(typeof esEstudiante);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 04 OPERADORES
+            ================================================== -->
+
+            <section id="operadores" class="clase">
+
+                <h1>Operadores</h1>
+
+                <p>
+                    Los operadores permiten realizar operaciones matemáticas
+                    y comparaciones.
+                </p>
+
+
+                <div class="card">
+
+                    <h2>Operadores Aritméticos</h2>
+
+                    <p>
+                        Se utilizan para realizar operaciones matemáticas.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>let a = 10;
+let b = 5;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);
+console.log(a ** 2);</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Operadores de Comparación</h2>
+
+                    <p>
+                        Comparan valores y devuelven
+                        <code>true</code> o <code>false</code>.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>console.log(10 > 5);
+console.log(10 < 5);
+console.log(10 >= 10);
+console.log(10 <= 5);
+console.log(10 == 10);
+console.log(10 != 5);
+
+console.log(10 === "10");
+console.log(10 !== "10");</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Operadores Lógicos</h2>
+
+                    <p>
+                        Combinan condiciones booleanas.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const edad = 25;
+const tieneDocumento = true;
+
+// AND
+console.log(edad >= 18 && tieneDocumento);
+
+// OR
+console.log(edad < 18 || tieneDocumento);
+
+// NOT
+console.log(!tieneDocumento);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 05 CONDICIONALES
+            ================================================== -->
+
+            <section id="condicionales" class="clase">
+
+                <h1>Condicionales</h1>
+
+                <p>
+                    Los condicionales permiten ejecutar código dependiendo
+                    de una condición.
+                </p>
+
+
+                <div class="card">
+
+                    <h2>if / else</h2>
+
+                    <p>
+                        Si la condición es verdadera se ejecuta un bloque.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const edad = 20;
+
+if (edad >= 18) {
+
+    console.log("Sos mayor de edad");
+
+} else {
+
+    console.log("Sos menor de edad");
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>else if</h2>
+
+                    <p>
+                        Permite trabajar con múltiples condiciones.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const calificacion = 8;
+
+if (calificacion >= 9) {
+
+    console.log("Excelente");
+
+} else if (calificacion >= 7) {
+
+    console.log("Bueno");
+
+} else if (calificacion >= 5) {
+
+    console.log("Aprobado");
+
+} else {
+
+    console.log("Desaprobado");
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>switch</h2>
+
+                    <p>
+                        Permite comparar un valor con diferentes casos.
+                    </p>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const dia = 3;
+
+let nombreDia;
+
+switch (dia) {
+
+    case 1:
+        nombreDia = "Lunes";
+        break;
+
+    case 2:
+        nombreDia = "Martes";
+        break;
+
+    case 3:
+        nombreDia = "Miércoles";
+        break;
+
+    default:
+        nombreDia = "Día inválido";
+}
+
+console.log(nombreDia);</code></pre>
+
+                </div>
+
+
+                <div class="ejercicio">
+
+                    <span>🚀 EJERCICIO</span>
+
+                    <h3>
+                        Construi un código para que dados 3 números
+                        se determine el mayor.
+                    </h3>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 06 FUNCIONES
+            ================================================== -->
+
+            <section id="funciones" class="clase">
+
+                <h1>Funciones</h1>
+
+                <p>
+                    Una función es un bloque de código que podemos reutilizar.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>function sumar(a, b) {
+
+    return a + b;
+
+}
+
+const resultado = sumar(10, 5);
+
+console.log(resultado);</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const multiplicar = (a, b) => {
+
+    return a * b;
+
+};
+
+const resultado = multiplicar(3, 4);
+
+console.log(resultado);
+
+// Versión corta
+
+const restar = (a, b) => a - b;
+
+console.log(restar(10, 3));</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>function saludar(nombre = "Amigo") {
+
+    console.log(`Hola, ${nombre}!`);
+
+}
+
+saludar();
+
+saludar("Juan");</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 07 ARRAYS
+            ================================================== -->
+
+            <section id="arrays" class="clase">
+
+                <h1>Arrays</h1>
+
+                <p>
+                    Los arrays permiten guardar varios valores dentro
+                    de una misma variable.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const frutas = [
+    "Manzana",
+    "Banana",
+    "Naranja"
+];
+
+console.log(frutas[0]);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 08 BUCLES
+            ================================================== -->
+
+            <section id="bucles" class="clase">
+
+                <h1>Bucles</h1>
+
+                <p>
+                    Los bucles permiten repetir una tarea varias veces.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>for (let i = 1; i <= 5; i++) {
+
+    console.log("Vuelta:", i);
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>let contador = 1;
+
+while (contador <= 5) {
+
+    console.log(contador);
+
+    contador++;
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const nombres = [
+    "Ana",
+    "Luis",
+    "Sofía"
+];
+
+for (const nombre of nombres) {
+
+    console.log(nombre);
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="ejercicio">
+
+                    <span>🚀 EJERCICIO</span>
+
+                    <h2>Contador</h2>
+
+                    <p>
+                        Creá un programa que muestre en consola
+                        los números del 1 al 20.
+                    </p>
+
+                    <p>
+                        <strong>Desafío:</strong>
+                        mostrar solamente los números pares.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 09 OBJETOS
+            ================================================== -->
+
+            <section id="objetos" class="clase">
+
+                <h1>Objetos</h1>
+
+                <p>
+                    Los objetos permiten representar entidades con propiedades.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const alumno = {
+
+    nombre: "Martín",
+    edad: 15,
+    curso: "3° A",
+    aprobado: true
+
+};
+
+console.log(alumno.nombre);
+
+console.log(alumno["curso"]);
+
+alumno.edad = 16;
+
+alumno.nota = 9;</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const persona = {
+
+    nombre: "Ana",
+
+    saludar() {
+
+        return `Hola, soy ${this.nombre}`;
+
+    }
+
+};
+
+console.log(persona.saludar());</code></pre>
+
+                </div>
+
+
+                <div class="ejercicio">
+
+                    <span>🚀 EJERCICIO</span>
+
+                    <h2>Ficha de estudiante</h2>
+
+                    <p>
+                        Creá un objeto con nombre, edad, curso y tres notas.
+                    </p>
+
+                    <p>
+                        Después calculá el promedio utilizando una función.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 10 ARRAYS AVANZADOS
+            ================================================== -->
+
+            <section id="arrays-avanzados" class="clase">
+
+                <h1>Arrays avanzados</h1>
+
+                <p>
+                    Métodos para buscar, transformar, ordenar y filtrar.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const frutas = [
+    "Manzana",
+    "Banana"
+];
+
+frutas.push("Naranja");
+
+frutas.pop();
+
+frutas.unshift("Pera");
+
+frutas.shift();
+
+console.log(frutas);</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const numeros = [1, 2, 3, 4, 5];
+
+const dobles =
+    numeros.map(n => n * 2);
+
+const pares =
+    numeros.filter(n => n % 2 === 0);
+
+const encontrado =
+    numeros.find(n => n === 3);
+
+console.log(dobles);
+
+console.log(pares);
+
+console.log(encontrado);</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const precios = [
+    100,
+    250,
+    80,
+    120
+];
+
+const total = precios.reduce(
+    (acumulador, precio) => {
+
+        return acumulador + precio;
+
+    },
+    0
+);
+
+console.log(total);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 11 STRINGS
+            ================================================== -->
+
+            <section id="strings" class="clase">
+
+                <h1>Strings y métodos de texto</h1>
+
+                <p>
+                    Los strings representan texto.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const texto =
+    "JavaScript es divertido";
+
+console.log(texto.length);
+
+console.log(texto.toUpperCase());
+
+console.log(texto.toLowerCase());
+
+console.log(
+    texto.includes("JavaScript")
+);
+
+console.log(
+    texto.startsWith("Java")
+);
+
+console.log(
+    texto.endsWith("divertido")
+);</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const nombre =
+    "   Juan Pérez   ";
+
+console.log(nombre.trim());
+
+const palabras =
+    "HTML CSS JavaScript".split(" ");
+
+console.log(palabras);
+
+const mensaje =
+    "Hola alumno";
+
+console.log(
+    mensaje.replace(
+        "alumno",
+        "programador"
+    )
+);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 12 SCOPE
+            ================================================== -->
+
+            <section id="scope" class="clase">
+
+                <h1>Scope y buenas prácticas</h1>
+
+                <p>
+                    El scope determina dónde podemos utilizar una variable.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const nombre = "Ana";
+
+if (true) {
+
+    const mensaje = "Hola";
+
+    let edad = 15;
+
+    console.log(nombre);
+
+    console.log(mensaje);
+
+    console.log(edad);
+
+}
+
+// mensaje y edad no existen
+// fuera del bloque.</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Buenas prácticas</h2>
+
+                    <ul>
+
+                        <li>Usar <code>const</code> por defecto.</li>
+
+                        <li>
+                            Usar <code>let</code> cuando el valor debe cambiar.
+                        </li>
+
+                        <li>
+                            Elegir nombres claros.
+                        </li>
+
+                        <li>
+                            Evitar código repetido.
+                        </li>
+
+                        <li>
+                            Separar el programa en funciones pequeñas.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 13 DOM
+            ================================================== -->
+
+            <section id="dom" class="clase">
+
+                <h1>DOM</h1>
+
+                <p>
+                    El DOM permite acceder y modificar los elementos HTML
+                    desde JavaScript.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const titulo =
+    document.querySelector("#titulo");
+
+titulo.textContent =
+    "Hola JavaScript";</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 14 FORMULARIOS
+            ================================================== -->
+
+            <section id="formularios" class="clase">
+
+                <h1>Formularios</h1>
+
+                <p>
+                    JavaScript puede leer y validar los datos ingresados.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const formulario =
+    document.querySelector("#formulario");
+
+const nombre =
+    document.querySelector("#nombre");
+
+formulario.addEventListener(
+    "submit",
+    function(evento) {
+
+        evento.preventDefault();
+
+        if (nombre.value.trim() === "") {
+
+            alert("Ingresá tu nombre");
+
+            return;
+
+        }
+
+        console.log(
+            "Nombre:",
+            nombre.value
+        );
+
+    }
+);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 15 LOCAL STORAGE
+            ================================================== -->
+
+            <section id="localstorage" class="clase">
+
+                <h1>LocalStorage</h1>
+
+                <p>
+                    Permite guardar pequeños datos en el navegador.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>localStorage.setItem(
+    "nombre",
+    "Ana"
+);
+
+const nombre =
+    localStorage.getItem("nombre");
+
+console.log(nombre);
+
+localStorage.removeItem("nombre");
+
+// localStorage.clear();</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>const usuario = {
+
+    nombre: "Lucas",
+
+    puntos: 120
+
+};
+
+localStorage.setItem(
+    "usuario",
+    JSON.stringify(usuario)
+);
+
+const datos =
+    JSON.parse(
+        localStorage.getItem("usuario")
+    );
+
+console.log(datos.nombre);
+
+console.log(datos.puntos);</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 16 JSON Y FETCH
+            ================================================== -->
+
+            <section id="json-fetch" class="clase">
+
+                <h1>JSON y Fetch</h1>
+
+                <p>
+                    JSON permite intercambiar información.
+                    Fetch permite realizar solicitudes a servidores.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const alumno = {
+
+    nombre: "Sofía",
+    edad: 14,
+    puntos: 85
+
+};
+
+const textoJSON =
+    JSON.stringify(alumno);
+
+console.log(textoJSON);
+
+const objeto =
+    JSON.parse(textoJSON);
+
+console.log(objeto.nombre);</code></pre>
+
+                </div>
+
+
+                <div class="codigo">
+
+                    <pre><code>async function cargarDatos() {
+
+    try {
+
+        const respuesta =
+            await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+            );
+
+        const usuarios =
+            await respuesta.json();
+
+        console.log(usuarios);
+
+    } catch (error) {
+
+        console.error(
+            "Ocurrió un error:",
+            error
+        );
+
+    }
+
+}
+
+cargarDatos();</code></pre>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 17 ERRORES
+            ================================================== -->
+
+            <section id="errores" class="clase">
+
+                <h1>Errores y depuración</h1>
+
+                <p>
+                    Aprender a encontrar errores es fundamental.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>try {
+
+    const numero =
+        Number("abc");
+
+    if (Number.isNaN(numero)) {
+
+        throw new Error(
+            "No es un número válido"
+        );
+
+    }
+
+    console.log(numero);
+
+} catch (error) {
+
+    console.error(
+        error.message
+    );
+
+}</code></pre>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Herramientas del navegador</h2>
+
+                    <p>
+                        Practicá con
+                        <code>console.log()</code>,
+                        <code>console.table()</code>,
+                        breakpoints y el panel Console.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 18 PROYECTO FINAL
+            ================================================== -->
+
+            <section id="proyecto" class="clase">
+
+                <h1>
+                    Proyecto final:
+                    Sistema de torneo de ajedrez
+                </h1>
+
+                <p>
+                    Integrá todo lo aprendido construyendo una pequeña
+                    aplicación web.
+                </p>
+
+
+                <div class="card">
+
+                    <h2>Objetivo</h2>
+
+                    <p>
+                        Crear una aplicación para registrar jugadores,
+                        asignar puntos y mostrar una clasificación.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Etapa 1 — Datos</h2>
+
+                    <ul>
+
+                        <li>Crear un array de jugadores.</li>
+
+                        <li>Cada jugador debe ser un objeto.</li>
+
+                        <li>Guardar nombre, categoría y puntos.</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Etapa 2 — Funciones</h2>
+
+                    <ul>
+
+                        <li>Agregar jugador.</li>
+
+                        <li>Eliminar jugador.</li>
+
+                        <li>Sumar puntos.</li>
+
+                        <li>Buscar jugador.</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Etapa 3 — DOM</h2>
+
+                    <ul>
+
+                        <li>Mostrar jugadores en una tabla.</li>
+
+                        <li>Crear botones de acción.</li>
+
+                        <li>
+                            Actualizar la clasificación sin recargar.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Etapa 4 — Persistencia</h2>
+
+                    <p>
+                        Guardar los jugadores en LocalStorage.
+                    </p>
+
+                </div>
+
+
+                <div class="ejercicio">
+
+                    <span>🏆 DESAFÍO FINAL</span>
+
+                    <h2>De programador a creador</h2>
+
+                    <p>
+                        Construí una versión funcional del sistema.
+                        Dividí el problema en partes, investigá,
+                        probá, detectá errores y mejorá progresivamente.
+                    </p>
+
+                </div>
+
+
+                <div class="nota">
+
+                    <strong>💡 Método de aprendizaje</strong>
+
+                    <p>
+                        <strong>
+                            APRENDER →
+                            PRACTICAR →
+                            JUGAR →
+                            CREAR →
+                            PROBAR →
+                            ANALIZAR →
+                            MEJORAR
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 19 EVENTOS
+            ================================================== -->
+
+            <section id="eventos" class="clase">
+
+                <h1>Eventos</h1>
+
+                <p>
+                    Los eventos permiten reaccionar a acciones del usuario,
+                    como hacer clic en un botón.
+                </p>
+
+
+                <div class="codigo">
+
+                    <pre><code>const boton =
+    document.querySelector("#boton");
+
+boton.addEventListener(
+    "click",
+    function() {
+
+        alert("Hiciste clic");
+
+    }
+);</code></pre>
+
+                </div>
+
+
+                <div class="ejercicio">
+
+                    <span>🚀 EJERCICIO</span>
+
+                    <h2>Tu primer desafío</h2>
+
+                    <p>
+                        Creá un botón que cambie el texto de un título
+                        cuando el usuario haga clic.
+                    </p>
+
+                    <button class="btn-ejercicio">
+                        Marcar como completado
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
     </div>
 
-    <footer>
-      <p>IPEM 146 - Sistemas Digitales | Clase 1 y 2 | 2026</p>
-    </footer>
-  </body>
+
+
+    <!-- =====================================================
+         SISTEMA DE COPIAR CÓDIGO
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const bloquesCodigo =
+                    document.querySelectorAll(".codigo");
+
+
+                bloquesCodigo.forEach(
+                    function (bloque) {
+
+                        const codigo =
+                            bloque.querySelector("code");
+
+
+                        // Si no existe código,
+                        // no hacemos nada.
+
+                        if (!codigo) {
+                            return;
+                        }
+
+
+                        /*
+                        ==========================================
+                        BUSCAR O CREAR HEADER
+                        ==========================================
+                        */
+
+                        let header =
+                            bloque.querySelector(
+                                ".codigo-header"
+                            );
+
+
+                        if (!header) {
+
+                            header =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            header.className =
+                                "codigo-header";
+
+
+                            const titulo =
+                                document.createElement(
+                                    "span"
+                                );
+
+                            titulo.textContent =
+                                "JavaScript";
+
+
+                            header.appendChild(
+                                titulo
+                            );
+
+
+                            bloque.insertBefore(
+                                header,
+                                bloque.firstChild
+                            );
+
+                        }
+
+
+                        /*
+                        ==========================================
+                        EVITAR BOTONES DUPLICADOS
+                        ==========================================
+                        */
+
+                        if (
+                            header.querySelector(
+                                ".btn-copiar"
+                            )
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        /*
+                        ==========================================
+                        CREAR BOTÓN
+                        ==========================================
+                        */
+
+                        const boton =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        boton.type = "button";
+
+                        boton.className =
+                            "btn-copiar";
+
+                        boton.textContent =
+                            "📋 Copiar";
+
+
+                        header.appendChild(
+                            boton
+                        );
+
+
+                        /*
+                        ==========================================
+                        COPIAR CÓDIGO
+                        ==========================================
+                        */
+
+                        boton.addEventListener(
+                            "click",
+                            async function () {
+
+                                const texto =
+                                    codigo.textContent.trim();
+
+
+                                try {
+
+                                    await navigator
+                                        .clipboard
+                                        .writeText(
+                                            texto
+                                        );
+
+
+                                    boton.textContent =
+                                        "✓ Copiado";
+
+                                    boton.classList.add(
+                                        "copiado"
+                                    );
+
+
+                                    setTimeout(
+                                        function () {
+
+                                            boton.textContent =
+                                                "📋 Copiar";
+
+                                            boton.classList.remove(
+                                                "copiado"
+                                            );
+
+                                        },
+                                        1800
+                                    );
+
+
+                                } catch (error) {
+
+                                    console.error(
+                                        "No se pudo copiar:",
+                                        error
+                                    );
+
+
+                                    /*
+                                    ==================================
+                                    MÉTODO ALTERNATIVO
+                                    ==================================
+                                    */
+
+                                    const textarea =
+                                        document.createElement(
+                                            "textarea"
+                                        );
+
+                                    textarea.value =
+                                        texto;
+
+                                    textarea.style.position =
+                                        "fixed";
+
+                                    textarea.style.opacity =
+                                        "0";
+
+
+                                    document.body.appendChild(
+                                        textarea
+                                    );
+
+
+                                    textarea.select();
+
+
+                                    try {
+
+                                        document.execCommand(
+                                            "copy"
+                                        );
+
+                                        boton.textContent =
+                                            "✓ Copiado";
+
+                                        boton.classList.add(
+                                            "copiado"
+                                        );
+
+                                    } catch (errorAlternativo) {
+
+                                        boton.textContent =
+                                            "❌ Error";
+
+                                    }
+
+
+                                    document.body.removeChild(
+                                        textarea
+                                    );
+
+
+                                    setTimeout(
+                                        function () {
+
+                                            boton.textContent =
+                                                "📋 Copiar";
+
+                                            boton.classList.remove(
+                                                "copiado"
+                                            );
+
+                                        },
+                                        1800
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
 </html>
